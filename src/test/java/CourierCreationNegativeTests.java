@@ -7,8 +7,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import static io.restassured.RestAssured.given;
-
 @RunWith(Parameterized.class)
 public class CourierCreationNegativeTests {
     private static RandomString loginPassword = new RandomString();

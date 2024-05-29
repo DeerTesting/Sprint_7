@@ -1,8 +1,6 @@
-import io.qameta.allure.Step;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.example.Orders;
-import org.example.Profile;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,13 +14,13 @@ public class OrderCreationTest {
 
     Orders order;
     private String[] color;
-    private int Expectedcode;
+    private int expectedCode;
 
 
 
     public OrderCreationTest(String[] color, int expectedCode) {
         this.color = color;
-        Expectedcode = expectedCode;
+        this.expectedCode = expectedCode;
     }
 
 
@@ -50,7 +48,7 @@ public class OrderCreationTest {
     public void successOrderCreation(){
         order = new Orders("firstName", "lastName", "city, house, 3", "4", "+79993331155", 2, "2024.05.20", "comment", color);
         Response response = Steps.sendPostOrderCreation(order);
-        Steps.checkSuccessBody(response, "track", Expectedcode);
+        Steps.checkSuccessBody(response, "track", expectedCode);
 
     }
 

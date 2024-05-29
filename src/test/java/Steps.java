@@ -83,13 +83,13 @@ public class Steps {
         response.then().assertThat().body("ok", equalTo(true)).and().statusCode(200);
     }
 
-    @Step("Successful deletion of profile")
+    @Step("Unsuccessful deletion of profile without id")
     public static Response unSuccessDelete(){
         return given()
                 .delete("/api/v1/courier");
     }
 
-    @Step("Check id deletion was successful")
+    @Step("Compare negative body response after unsuccessful deletion")
     public static void checkUnsuccessDeletion(Response response, String errorText){
         response.then().assertThat().body("message", equalTo(errorText)).and().statusCode(400);
     }
